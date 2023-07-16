@@ -176,6 +176,22 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
         g++ \
         && rm -rf /var/lib/apt/lists/*
 
+# Install s5cmd
+RUN  apt-get update \
+  && apt-get install -y wget \
+  && rm -rf /var/lib/apt/lists/*
+
+ADD https://github.com/peak/s5cmd/releases/download/v2.1.0/s5cmd_2.1.0_Linux-64bit.tar.gz s5cmd_2.1.0_Linux-64bit.tar.gz
+RUN tar -xf s5cmd_2.1.0_Linux-64bit.tar.gz
+
+RUN echo "hello"
+
+RUN ls
+
+COPY s5cmd s5cmd
+
+COPY launch_s3_model.sh launch_s3_model.sh
+
 # AWS Sagemaker compatbile image
 FROM base as sagemaker
 
