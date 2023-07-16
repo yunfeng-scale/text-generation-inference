@@ -184,10 +184,6 @@ RUN  apt-get update \
 ADD https://github.com/peak/s5cmd/releases/download/v2.1.0/s5cmd_2.1.0_Linux-64bit.tar.gz s5cmd_2.1.0_Linux-64bit.tar.gz
 RUN tar -xf s5cmd_2.1.0_Linux-64bit.tar.gz
 
-RUN echo "hello"
-
-RUN ls
-
 COPY s5cmd s5cmd
 
 COPY launch_s3_model.sh launch_s3_model.sh

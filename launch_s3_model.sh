@@ -1,5 +1,5 @@
 base_name=$(basename $1)
-echo $base_name
+echo "Loading $base_name"
 
 ./s5cmd cp $1 .
 mkdir -p model_files
